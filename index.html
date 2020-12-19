@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Attendance System of the University</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<div class="hero">
+		<div class="form-box">
+			<div class="button-box">
+				<!-- Animation buttons -->
+				<div id="btn"></div>
+				<button type="button" class="toggle-btn" onclick="addStudent()">
+					Add Student
+				</button>
+				<button type="button" class="toggle-btn" onclick="addAttendance()">
+					Add Attendance
+				</button>
+				<button type="button" class="toggle-btn" onclick="viewAttendance()">
+					View Attendance
+				</button>
+				<button type="button" class="toggle-btn" onclick="addAdmin()">
+					Add Admin
+				</button>
+			</div>
+
+			<!-- Block for addStudent-->
+			<div id="addStudent" class="input-group">
+				<input type="text" class="input-field" id="_rollno" placeholder="Student Id" autocomplete="off" required />
+				<input type="text" class="input-field" id="_name" placeholder="Name" autocomplete="off" required />
+				<input type="text" class="input-field" id="_attendance" placeholder="Attendance" autocomplete="off" required />
+				<button type="submit" class="submit-btn" id="_addStudent">Add Student</button>
+				<div class="dialoge-box addS"></div>
+
+			</div>
+
+			<!-- Block for addAttendance-->
+			<div id="addAttendance" class="input-group">
+				<input type="text" class="input-field" id="_rollnoA" placeholder="Student Id" autocomplete="off" required />
+				<button type="submit" class="submit-btn" id="_addAtt">Add Attendance</button>
+				<div class="dialoge-box addA"></div>
+			</div>
+
+			<!-- Block for viewAttendance-->
+			<div id="viewAttendance" class="input-group">
+				<input type="text" class="input-field" id="_rollnoV" placeholder="Student Id" autocomplete="off" required />
+				<button type="submit" class="submit-btn" id="_view">View Attendance</button>
+				<div class="dialoge-box viewA"></div>
+			</div>
+
+			<!-- Block for addAdmin -->
+			<div id="addAdmin" class="input-group">
+				<input type="text" class="input-field" id="_address" placeholder="Address" autocomplete="off" required />
+				<button type="submit" class="submit-btn" id="_addAdmin">Add Admin</button>
+				<div class="dialoge-box addAd"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- javascript code -->
+	<script src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.2.6/dist/web3.min.js"></script>
+	<script type="text/javascript" src="/script.js"></script>
+</body>
+
+</html>
