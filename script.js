@@ -95,6 +95,7 @@ var abi = [
 
 web3 = new Web3(web3.currentProvider);
 contract = new web3.eth.Contract(abi, address);
+var check = false;
 
 $(document).ready(function () {
     // This function execute when addStudent button is pressed
@@ -108,20 +109,21 @@ $(document).ready(function () {
                 var attendance = $("#_attendance").val();
 
                 if (sid && name && attendance) {
-                    var n = 1;
+                    check = true;
                     return contract.methods
                         .addStudent(sid, name, attendance)
                         .send({ from: acnt });
                 }
                 else {
                     $(".addS").text('Fill details correctly!');
-                    window.onload;
                 }
             })
             .then(function (trx) {
                 console.log(trx);
-                if (n)
+                if (check) {
                     $(".addS").text('Student attendance is successfully added!');
+                    check = false;
+                }
             });
     });
 
@@ -133,7 +135,7 @@ $(document).ready(function () {
                 var acnt = accounts[0];
                 var sid = $("#_rollnoA").val();
                 if (sid) {
-                    var n = 1;
+                    check = true;
                     return contract.methods.addAttendance(sid).send({ from: acnt });
                 }
                 else {
@@ -142,8 +144,10 @@ $(document).ready(function () {
             })
             .then(function (trx) {
                 console.log(trx);
-                if (n)
+                if (check) {
                     $(".addA").text('Attendance is updated!');
+                    check = false;
+                }
             });
     });
 
@@ -175,7 +179,7 @@ $(document).ready(function () {
                 var acnt = accounts[0];
                 var address = $("#_address").val();
                 if (address) {
-                    var n = 1;
+                    check = true;
                     return contract.methods.addAdmin(address).send({ from: acnt });
                 }
                 else
@@ -183,8 +187,10 @@ $(document).ready(function () {
             })
             .then(function (trx) {
                 console.log(trx);
-                if (n)
+                if (check) {
                     $(".addAd").text('Admin is successfully added!');
+                    check = false;
+                }
             });
     });
 });
